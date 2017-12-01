@@ -15,7 +15,7 @@ import (
 
 const (
 	port = ":50051"
-	LP = "/var/log/system.log"
+	LP = "/var/log/syslog"
 )
 
 func GetLogs(client pb.LogsClient) {
