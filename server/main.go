@@ -4,8 +4,8 @@ package main
 import (
 	"log"
 	"net"
-
-	pb "stschn.microsoft.com/logstreamer/pb"
+	pb "scschneider/logstreamer/pb"
+	//pb "stschn.microsoft.com/logstreamer/pb"
 	"github.com/hpcloud/tail"
 	//"golang.org/x/net/context"
 	"google.golang.org/grpc"
