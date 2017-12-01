@@ -40,7 +40,7 @@ func GetLogs(client pb.LogsClient) {
 func main() {
 	addresses := strings.Split(os.Args[1],",")
 
-	for _, element := range addresses {
+	for index, element := range addresses {
 		conn, err := grpc.Dial(element + port, grpc.WithInsecure())
 		if err != nil {
 			fmt.Println(element)
@@ -51,7 +51,16 @@ func main() {
 		c := pb.NewLogsClient(conn)
 
 		fmt.Println(element)
-		GetLogs(c)
+
+		if len(addresses) > 1 {
+			if index == 0 {
+				go GetLogs(c)
+			} else {
+				GetLogs(c)
+			}
+		} else {
+			GetLogs(c)
+		}
 	}
 }
 
