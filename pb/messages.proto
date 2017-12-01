@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pb;
+
+service Logs {
+    rpc GetLogs (LogPathRequest) returns (stream LogEntryReply) {}
+}
+
+message LogPathRequest {
+    string path = 1;
+}
+
+message LogEntryReply {
+    string log = 1;
+}
